@@ -1,8 +1,7 @@
-#app.py
 import pandas as pd
-from flask import Flask, jsonify, render_template, redirect, request
-#from modelHelper import ModelHelper
-import numpy as np
+from flask import Flask, jsonify, render_template, request
+from modelHelper import ModelHelper
+import pickle
 
 #################################################
 # Flask Setup
@@ -10,8 +9,7 @@ import numpy as np
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
-
-#modelHelper = ModelHelper()
+modelHelper = ModelHelper()
 
 #################################################
 # Flask Routes
@@ -45,6 +43,32 @@ def about_us():
 def sources():
     return render_template("sources.html")
 
+@app.route('/makePredictions', methods=['POST'])
+def make_predictions():
+    content = request.json["data"]
+    print(content)
+
+    # parse
+    hour = int(content['hour'])
+    day = int(content['day'])
+    month = int(content['month'])
+    temperature = float(content['temperature'])
+    distance = float(content['distance'])
+    surge_multiplier = content['surge_multiplier']
+    name = content['name']
+    is_weekend = bool(content['is_weekend'])
+    source = content['source']
+    destination = content['destination']
+    cab_type = content['cab_type']
+    
+    # Get the prediction from the model
+    preds = modelHelper.make_predictions(
+        hour, day, month, temperature, distance, surge_multiplier,
+        name, is_weekend, source, destination, cab_type
+    )
+
+    # Return the prediction as JSON
+    return jsonify({"predicted_price": preds})
 
 ##############################################################
 

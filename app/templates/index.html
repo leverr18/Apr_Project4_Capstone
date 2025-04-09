@@ -3,34 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Works Cited - MLB Data App</title>
+    <title>Rideshare Price Prediction</title>
     <!-- Bootswatch Vapor Theme -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/vapor/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
       .navbar-brand img {
           height: 40px; 
       }
-  </style>
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="https://m.media-amazon.com/images/I/71KoY68r+SL.jpg" alt="Rideshare Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="/tableau1">Tableau 1</a></li>
-                <li class="nav-item"><a class="nav-link" href="/tableau2">Tableau 2</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/index">Index</a></li>
-                <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="/report">Report</a></li>
-                <li class="nav-item"><a class="nav-link" href="/sources">Sources</a></li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="https://m.media-amazon.com/images/I/71KoY68r+SL.jpg" alt="Rideshare Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/tableau1">Tableau 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tableau2">Tableau 2</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/index">Index</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/report">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/sources">Sources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rideshare Prediction Form -->
+    <div class="container">
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">Filters</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="hour">Hour</label>
+                            <select class="form-control" id="hour">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="day">Date</label>
+                            <select class="form-control" id="day">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="month">Month</label>
+                            <select class="form-control" id="month">
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="temperature">Temperature</label>
+                            <input type="number" class="form-control" value="22" id="temperature" min="18" max="57">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="distance">Distance (miles)</label>
+                            <input type="number" class="form-control" value="6.04" id="distance" min="0.02" max="7.86" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="surge_multiplier">Surge Multiplier</label>
+                            <input type="number" class="form-control" value="1.2" id="surge_multiplier" min="1.0" max="3.0" step="0.01">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="name">Name</label>
+                            <select class="form-control" id="name">
+                                <option value="UberX">UberX</option>
+                                <option value="Lyft XL">Lyft XL</option>
+                                <option value="Taxi">Taxi</option>
+                                <option value="Lux">Lux</option>
+                                <option value="Black SUV">Black SUV</option>
+                                <option value="WAV">WAV</option>
+                                <option value="UberPool">UberPool</option>
+                                <option value="Shared">Shared</option>
+                                <option value="Lux Black XL">Lux Black XL</option>
+                                <option value="Lyft">Lyft</option>
+                                <option value="UberXL">UberXL</option>
+                                <option value="Black">Black</option>
+                                <option value="Lux Black">Lux Black</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="is_weekend">Is Weekend?</label>
+                            <select id="is_weekend" class="form-control">
+                                <option value="True">Yes</option>
+                                <option value="False">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="source">Start</label>
+                            <select class="form-control" id="source">
+                                <option value="theatre district">Theatre District</option>
+                                <option value="north end">North End</option>
+                                <option value="beacon hill">Beacon Hill</option>
+                                <option value="west end">West End</option>
+                                <option value="financial district">Financial District</option>
+                                <option value="back bay">Back Bay</option>
+                                <option value="south station">South Station</option>
+                                <option value="fenway">Fenway</option>
+                                <option value="northeastern university">Northeastern University</option>
+                                <option value="boston university">Boston University</option>
+                                <option value="haymarket square">Haymarket Square</option>
+                                <option value="north station">North Station</option>
+                            </select>
+                        </div> <!-- Fixed: Unclosed div -->
+                        <div class="form-group">
+                            <label class="col-form-label" for="destination">Destination</label>
+                            <select class="form-control" id="destination">
+                                <option value="theatre district">Theatre District</option>
+                                <option value="north end">North End</option>
+                                <option value="beacon hill">Beacon Hill</option>
+                                <option value="west end">West End</option>
+                                <option value="financial district">Financial District</option>
+                                <option value="back bay">Back Bay</option>
+                                <option value="south station">South Station</option>
+                                <option value="fenway">Fenway</option>
+                                <option value="northeastern university">Northeastern University</option>
+                                <option value="boston university">Boston University</option> <!-- Fixed typo: extra "y" -->
+                                <option value="haymarket square">Haymarket Square</option>
+                                <option value="north station">North Station</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="cab_type">Cab Type</label>
+                            <select class="form-control" id="cab_type">
+                                <option value="uber">Uber</option>
+                                <option value="lyft">Lyft</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" id="filter">Make Prediction!</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
+    <hr style="color:lightgray; border-width: 3px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="output"></h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript File -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
+
+</body>
+</html>
