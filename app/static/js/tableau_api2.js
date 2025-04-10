@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function initializeViz() {
     var placeholderDiv = document.getElementById("tableauViz");
-    var url = "https://public.tableau.com/views/UberVsLift/Sheet4?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link";  // Your second Tableau link
+    var url = "https://public.tableau.com/views/UberVsLyft_17440452145440/UberVsLyftRideTrendsPeakHoursandHotspots?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link";  // Your second Tableau link
     var options = {
         hideTabs: true,
         hideToolbar: true,

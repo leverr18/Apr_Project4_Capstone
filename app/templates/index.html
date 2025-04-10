@@ -128,9 +128,16 @@
                             <input type="number" class="form-control" value="1.2" id="surge_multiplier" min="1.0" max="3.0" step="0.01">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="cab_type">Vendor</label>
+                        <select class="form-control" id="cab_type">
+                            <option value="uber">Uber</option>
+                            <option value="lyft">Lyft</option>
+                        </select>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-form-label" for="name">Name</label>
+                            <label class="col-form-label" for="name">Ride Type</label>
                             <select class="form-control" id="name">
                                 <option value="UberX">UberX</option>
                                 <option value="Lyft XL">Lyft XL</option>
@@ -170,7 +177,7 @@
                                 <option value="haymarket square">Haymarket Square</option>
                                 <option value="north station">North Station</option>
                             </select>
-                        </div> <!-- Fixed: Unclosed div -->
+                        </div> 
                         <div class="form-group">
                             <label class="col-form-label" for="destination">Destination</label>
                             <select class="form-control" id="destination">
@@ -183,16 +190,9 @@
                                 <option value="south station">South Station</option>
                                 <option value="fenway">Fenway</option>
                                 <option value="northeastern university">Northeastern University</option>
-                                <option value="boston university">Boston University</option> <!-- Fixed typo: extra "y" -->
+                                <option value="boston university">Boston University</option> 
                                 <option value="haymarket square">Haymarket Square</option>
                                 <option value="north station">North Station</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label" for="cab_type">Cab Type</label>
-                            <select class="form-control" id="cab_type">
-                                <option value="uber">Uber</option>
-                                <option value="lyft">Lyft</option>
                             </select>
                         </div>
                     </div>
