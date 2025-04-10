@@ -1,3 +1,7 @@
+const LYFT_RIDE_TYPES = ["Lyft XL", "Black", "Lyft", "Black SUV"];
+const UBER_RIDE_TYPES = ["UberXL", "Lux", "Lux Black", "Lux Black XL", "UberPool"];
+
+
 $(document).ready(function() {
     console.log("Page Loaded");
 
@@ -6,6 +10,28 @@ $(document).ready(function() {
         makePredictions();
     });
 });
+
+
+function populateRideTypes(vendor) {
+    // console.log(`populateRideTypes ${vendor}`);
+    if (vendor == "lyft") {
+        var rideTypes = LYFT_RIDE_TYPES;  
+    } else if (vendor == "uber") {
+        var rideTypes = UBER_RIDE_TYPES;
+    } else {
+        throw new Error(`invalid input; ${vendor}`)
+    }
+
+    // console.log(rideTypes);
+    var dropdownMenu = d3.select("#name");
+    dropdownMenu.html("");
+    rideTypes.forEach((rt) => {
+      dropdownMenu.append("option")
+        .text(rt)
+        .property("value", rt);
+    })
+}
+
 
 // Call flask api endpoint
 function makePredictions() {
