@@ -1,5 +1,5 @@
 # Apr_Project4_Capstone
-Data Bootcamp Week 23 Capstone Project
+
 This project is the final capstone for our data science bootcamp. We analyze and visualize data from Uber and Lyft rides in Boston, MA using a dataset from Kaggle. Our goal is to uncover pricing differences, trip duration patterns, and demand trends between the two ride-sharing services.
 
 ## 📊 Project Overview
